@@ -13,7 +13,8 @@ class _DetailPageSixState extends State<DetailPageSix> {
   String _formattedDate = DateFormat('hh:mm a').format(DateTime.now());
   Timer? _timer;
   String? _dropdownValue;
-  final List<String> _numbers = List<String>.generate(10, (i) => (i + 1).toString());
+  final List<String> _numbers =
+      List<String>.generate(10, (i) => (i + 1).toString());
   final TextEditingController _alturaController = TextEditingController();
   final TextEditingController _generoController = TextEditingController();
 
@@ -68,13 +69,21 @@ class _DetailPageSixState extends State<DetailPageSix> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                'Cantidad Total de Nubes Nubosidad:',
-                style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 15),
-              ),
+              SizedBox(height: 20.0),
               Padding(
-                
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Cantidad Total de Nubes Nubosidad:',
+                        style: TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  )),
+              Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: DropdownButton<String>(
                   value: _dropdownValue,
@@ -116,10 +125,11 @@ class _DetailPageSixState extends State<DetailPageSix> {
                   SizedBox(width: 80),
                   ElevatedButton(
                     onPressed: () {
-                       Navigator.push(
-                         context,
-                         MaterialPageRoute(builder: (context) => DetailPageSeven()),
-                       );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailPageSeven()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Color.fromARGB(255, 43, 255, 0),
